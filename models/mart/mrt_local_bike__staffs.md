@@ -1,4 +1,4 @@
-{% docs int_local_bike__staffs %}
+{% docs mrt_local_bike__staffs %}
 
 
 {% enddocs %}

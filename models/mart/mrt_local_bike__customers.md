@@ -1,4 +1,4 @@
-{% docs mart_local_bike__customers %}
+{% docs mrt_local_bike__customers %}
 
 
 {% enddocs %}
