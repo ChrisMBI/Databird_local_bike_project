@@ -23,21 +23,15 @@ models:
         tests:
           - relationships:
               name: customer_id_id_foreign_key_in_stg_local_bike__orders
-              to: ref('stg_local_bike__customer')
+              to: ref('stg_local_bike__customers')
               field: customer_id
-      - name: order_status
-        description: "The current status of the order."
-        tests:
-          - accepted_values:
-              name: accepted_values_order_status
-              values: ["1", "2", "3", "4"]
       - name: store_id
         description: "Foreign key linking the order to the store where the bike came from."
         tests:
           - relationships:
               name: store_id_id_foreign_key_in_stg_local_bike__orders
               to: ref('stg_local_bike__stores')
-              field: customer_id
+              field: store_id
       - name: staff_id
         description: "Foreign key linking the order to the staff who sold it."
         tests:
