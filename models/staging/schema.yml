@@ -38,7 +38,7 @@ models:
           - relationships:
               name: staff_id_id_foreign_key_in_stg_local_bike__orders
               to: ref('stg_local_bike__staffs')
-              field: customer_id
+              field: staff_id
 
   - name: stg_local_bike__order_items
     description: "This model contains information about each item included in an order, including its price, quantity, and discount."
