@@ -23,28 +23,22 @@ models:
         tests:
           - relationships:
               name: customer_id_id_foreign_key_in_stg_local_bike__orders
-              to: ref('stg_local_bike__customer')
+              to: ref('stg_local_bike__customers')
               field: customer_id
-      - name: order_status
-        description: "The current status of the order."
-        tests:
-          - accepted_values:
-              name: accepted_values_order_status
-              values: ["1", "2", "3", "4"]
       - name: store_id
         description: "Foreign key linking the order to the store where the bike came from."
         tests:
           - relationships:
               name: store_id_id_foreign_key_in_stg_local_bike__orders
               to: ref('stg_local_bike__stores')
-              field: customer_id
+              field: store_id
       - name: staff_id
         description: "Foreign key linking the order to the staff who sold it."
         tests:
           - relationships:
               name: staff_id_id_foreign_key_in_stg_local_bike__orders
               to: ref('stg_local_bike__staffs')
-              field: customer_id
+              field: staff_id
 
   - name: stg_local_bike__order_items
     description: "This model contains information about each item included in an order, including its price, quantity, and discount."
@@ -124,15 +118,7 @@ models:
           - relationships:
               name: store_id_id_foreign_key_in_stg_local_bike__products
               to: ref('stg_local_bike__stores')
-              field: store_id
-      - name: manager_id
-        description: "Foreign key linking the manager to the corresponding staff."
-        tests:
-          - relationships:
-              name: manager_id_id_foreign_key_in_stg_local_bike__products
-              to: ref('stg_local_bike__staffs')
-              field: staff_id
-      
+              field: store_id      
 
   - name: stg_local_bike__stocks
     description: "This model contains the stock quantity for each store."

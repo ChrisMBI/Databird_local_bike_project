@@ -1,4 +1,5 @@
 select
+    orders.order_date,
     brands.brand_id,
     categories.category_id,
     products.product_id,
@@ -7,10 +8,12 @@ select
     round(sum(order_items.total_order_item_list_amount),2) AS total_product_list_amount,
     round(sum(order_items.total_order_item_final_discount_amount),2) AS total_product_final_discount_amount
 FROM {{ ref('stg_local_bike__order_items') }} AS order_items
+JOIN {{ ref('int_local_bike__orders') }} orders ON order_items.order_id = orders.order_id
 JOIN {{ ref('stg_local_bike__products') }} AS products ON order_items.product_id = products.product_id
 JOIN {{ ref('stg_local_bike__brands') }} AS brands ON products.brand_id = brands.brand_id
 JOIN {{ ref('stg_local_bike__categories') }} AS categories ON products.category_id = categories.category_id
-GROUP BY 
+GROUP BY
+    orders.order_date,
     brands.brand_id,
     categories.category_id,
     products.product_id

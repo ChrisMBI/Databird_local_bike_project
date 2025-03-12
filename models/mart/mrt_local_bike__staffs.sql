@@ -1,4 +1,5 @@
 select
+    orders.order_date,
     stores.store_id,
     staffs.staff_id,
     count(distinct orders.total_distinct_product) AS total_distinct_sale_product,
@@ -10,5 +11,6 @@ FROM {{ ref('int_local_bike__orders') }} AS orders
 JOIN {{ ref('stg_local_bike__stores') }} AS stores ON orders.store_id = stores.store_id
 JOIN {{ ref('stg_local_bike__staffs') }} AS staffs ON orders.staff_id = staffs.staff_id
 GROUP BY
+    orders.order_date,
     stores.store_id,
     staffs.staff_id
