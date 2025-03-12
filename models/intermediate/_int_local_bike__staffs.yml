@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: int_local_bike__staffs
+    description: '{{ doc("int_local_bike__staffs") }}'
+    columns:
+      - name: staff_id
+        description: "Primary key, unique identifier for each staff."
+        tests:
+          - unique
+          - not_null

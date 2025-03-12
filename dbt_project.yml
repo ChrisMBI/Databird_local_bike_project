@@ -40,18 +40,18 @@ models:
       relation: true
       columns: true
       
-  my_first_dbt_project:
+  local_bike:
 
     staging:
       materialized: view
-      sales_database:
+      local_bike:
         schema: stg_local_bike
 
     intermediate:
       materialized: view
-      sales_database: 
+      local_bike: 
         schema: int_local_bike
     mart:
-      schema: mart
+      schema: mart_local_bike
       materialized: table
 
